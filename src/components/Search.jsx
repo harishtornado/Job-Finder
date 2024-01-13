@@ -23,7 +23,7 @@ const Search = ({ searchJob }) => {
             <div className='filter'>
                 <div className='clearBtn' onClick={() => clear()}>clear</div>
                 {
-                    data?.email === admin &&
+                    data?.email == admin &&
                     <Link className='addJobBtn' to='/new' >+Add Job</Link>
                 }
             </div>
