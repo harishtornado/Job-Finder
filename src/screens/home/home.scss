@@ -112,6 +112,7 @@
     }
   }
   .left_pane {
+    width: 100%;
     display: flex;
     flex-direction: row;
     gap: 30px;
@@ -146,11 +147,13 @@
     }
   }
   .right_pane {
+    width: 100%;
     @include flex-c;
     gap: 20px;
     align-items: flex-end;
     .skills {
       @include flex-r;
+      justify-content: flex-end;
       flex-wrap: wrap;
       gap: 5px;
       .skill {
@@ -161,8 +164,13 @@
       }
     }
     .btns {
+      width: 100%;
       display: flex;
       flex-direction: row;
+      justify-content: flex-end;
+      @media (max-width: 768px) {
+        justify-content: center;
+      }
       gap: 20px;
       .view_btn {
         width: 100px;
