@@ -7,6 +7,7 @@ const Job = () => {
     const { data, jobs } = useData()
     const [currJob, setCurrentJob] = useState()
     const { id } = useParams()
+    const admin = process.env.REACT_APP_ADMIN
 
     useEffect(() => {
         jobs.map(item => {
@@ -25,7 +26,7 @@ const Job = () => {
                 <div className='row'>
                     <div className='job_title'>{currJob?.jobPosition}</div>
                     {
-                        data?.email == "harish@gmail.com" &&
+                        data?.email === admin &&
                         <Link className='editJobBtn' to={`/edit/${currJob?._id}`} >Edit Job</Link>
                     }
                 </div>

@@ -5,9 +5,23 @@ import { useData } from '../../context/useData'
 
 const Edit = () => {
     const { jobs, fetchJob } = useData()
-    const [currJob, setCurrentJob] = useState({})
+    const [currJob, setCurrentJob] = useState({
+        companyName: "",
+        logoUrl: "",
+        jobPosition: "",
+        salary: "",
+        duration: "",
+        jobType: "",
+        remote: "",
+        location: "",
+        description: "",
+        about: "",
+        skillsRequired: [],
+        information: ""
+    })
     const { id } = useParams()
     const navigate = useNavigate()
+    const api_url = process.env.REACT_APP_API_URL
 
     useEffect(() => {
         jobs.map(item => {
@@ -20,7 +34,7 @@ const Edit = () => {
     const editJob = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch(`http://localhost:5000/job/editJob/${currJob._id}`, {
+            const response = await fetch(`${api_url}/job/editJob/${currJob._id}`, {
                 method: "put",
                 headers: {
                     'Content-Type': 'application/json',

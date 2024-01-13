@@ -6,11 +6,12 @@ export const DataProvider = ({ children }) => {
     const [data, setData] = useState({})
     const [jobs, setJobs] = useState([])
     const [isLoading, setIsLoading] = useState(false)
+    const api_url = process.env.REACT_APP_API_URL
 
     const fetchJob = async () => {
         setIsLoading(true)
         try {
-            const response = await fetch('http://localhost:5000/job/getJob', {
+            const response = await fetch(`${api_url}/job/getJob`, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json',

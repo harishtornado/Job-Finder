@@ -4,6 +4,7 @@ import { useData } from '../context/useData'
 
 const JobCard = ({ job }) => {
     const { data } = useData()
+    const admin = process.env.REACT_APP_ADMIN
     return (
         <div className='job_card'>
             <div className='left_pane'>
@@ -39,7 +40,7 @@ const JobCard = ({ job }) => {
                 </div>
                 <div className='btns'>
                     {
-                        data?.email == "harish@gmail.com" &&
+                        data?.email === admin &&
                         <Link to={`/edit/${job._id}`}><div className='edit_btn'>Edit Details</div></Link>
                     }
                     <Link to={`/job/${job._id}`}><div className='view_btn'>View Details</div></Link>

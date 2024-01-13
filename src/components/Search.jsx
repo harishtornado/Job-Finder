@@ -10,6 +10,8 @@ const Search = ({ searchJob }) => {
         searchJob('')
     }
 
+    const admin = process.env.REACT_APP_ADMIN
+
     return (
         <div className='search_container'>
             <div className='search_box'>
@@ -21,7 +23,7 @@ const Search = ({ searchJob }) => {
             <div className='filter'>
                 <div className='clearBtn' onClick={() => clear()}>clear</div>
                 {
-                    data?.email == "harish@gmail.com" &&
+                    data?.email === admin &&
                     <Link className='addJobBtn' to='/new' >+Add Job</Link>
                 }
             </div>

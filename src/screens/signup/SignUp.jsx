@@ -60,7 +60,7 @@ const SignUp = () => {
                     <input ref={nameRef} type='text' placeholder='Name' required className='inputBox' />
                     <input ref={emailRef} type='email' placeholder='Email' required className='inputBox' />
                     <input ref={urlRef} type='text' placeholder='Profile Url' required className='inputBox' />
-                    <input ref={passwordRef} type='password' placeholder='Password' required className='inputBox' />
+                    <input ref={passwordRef} minLength={8} type='password' placeholder='Password' required className='inputBox' />
                     <button type='submit' className='signin_btn'>Create Account</button>
                     <p className='link_txt'>Already have an account? <Link to='/'>Sign In</Link></p>
                 </form>

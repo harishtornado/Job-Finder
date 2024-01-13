@@ -9,6 +9,7 @@ const SignIn = () => {
     const passwordRef = useRef(null)
     const [error, setError] = useState(null)
     const { updateData } = useData()
+    const api_url = process.env.REACT_APP_API_URL
 
     useEffect(() => {
         if (localStorage.getItem('JOB-APP-DATA') && localStorage.getItem('JOB-APP-DATA') !== "undefined") {
@@ -31,7 +32,7 @@ const SignIn = () => {
     const login = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/user/loginUser', {
+            const response = await fetch(`${api_url}/user/loginUser`, {
                 method: "post",
                 headers: {
                     'Content-Type': 'application/json',
@@ -64,7 +65,7 @@ const SignIn = () => {
                     <h1 className='header'>Already have an account?</h1>
                     <p className='desc'>Your personal job finder is here</p>
                     <input ref={emailRef} type='email' placeholder='Email' required className='inputBox' />
-                    <input ref={passwordRef} type='password' placeholder='Password' required className='inputBox' />
+                    <input ref={passwordRef} minLength={8} type='password' placeholder='Password' required className='inputBox' />
                     <button type='submit' className='signin_btn'>Sign in</button>
                     <p className='link_txt'>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
                 </form>

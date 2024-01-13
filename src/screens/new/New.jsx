@@ -21,11 +21,12 @@ const New = () => {
         skillsRequired: [],
         information: null,
     })
+    const api_url = process.env.REACT_APP_API_URL
 
     const addNewJob = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch('http://localhost:5000/job/newJob', {
+            const response = await fetch(`${api_url}/job/newJob`, {
                 method: "post",
                 headers: {
                     'Content-Type': 'application/json',

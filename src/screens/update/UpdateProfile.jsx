@@ -5,13 +5,13 @@ import { useData } from '../../context/useData'
 const UpdateProfile = () => {
     const navigate = useNavigate()
     const { data, updateData } = useData()
-
+    const api_url = process.env.REACT_APP_API_URL
     const [user, setUser] = useState(data)
 
     const updateProfile = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch(`http://localhost:5000/user/updateUser/${user._id}`, {
+            const response = await fetch(`${api_url}/user/updateUser/${user._id}`, {
                 method: "put",
                 headers: {
                     'Content-Type': 'application/json',
